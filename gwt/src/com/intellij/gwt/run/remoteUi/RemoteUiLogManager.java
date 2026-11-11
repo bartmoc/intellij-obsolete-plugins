@@ -47,7 +47,7 @@ public final class RemoteUiLogManager {
     Disposer.register(connection, () -> CoroutineScopeKt.cancel(scope, null));
     
     myLogUpdateQueue = DebouncedUpdates.<LogMessage>forScope(scope, "GWT RemoteUI Log updates", 300)
-      .withContext(CoroutinesKt.getUI(Dispatchers.INSTANCE))
+      .withContext(CoroutinesKt.getEDT(Dispatchers.INSTANCE))
       .runBatched(this::processLogMessages);
   }
 
