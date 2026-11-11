@@ -20,7 +20,7 @@ repositories {
 dependencies {
     intellijPlatform {
         intellijIdea(properties("platformVersion"))
-        bundledPlugin("com.intellij.spring.mvc")
+        bundledModule("intellij.java.psi")
     }
 
     compileOnly(project(":"))
